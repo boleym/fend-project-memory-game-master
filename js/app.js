@@ -22,7 +22,7 @@ function shuffle(cardDeck) {
         currentIndex -= 1;
         temporaryValue = cardDeck[currentIndex];
         cardDeck[currentIndex] = cardDeck[randomIndex];
-        cardDeckrandomIndex] = temporaryValue;
+        cardDeck[randomIndex] = temporaryValue;
     }
 
     return cardDeck;
@@ -41,11 +41,21 @@ function shuffle(cardDeck) {
  */
  /*function to flip the card*/
 
- function flipCard(card) {
-     card.classList.toggle("open");
-     card.classList.toggle("show");
+ function flipCards() {
+  for (let i = 0; i < card.length; i++) {
+    card[i].addEventListener('click', function() {
+      card[i].classList.toggle('open');
+      card[i].classList.toggle('show');
+    })
+  }
+}
+flipCards();
+
+ /*function flipCard(card) {
+     toggle(".deck .card.open");
+     toggle(".deck .card.show");
  }
- /* event listener for when card is clicked*/
+ /* event listener for when card is clicked
 card.addEventListener("click", flipCard);
 
 
