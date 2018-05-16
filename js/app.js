@@ -41,9 +41,9 @@ function shuffle(cardDeck) {
  */
  /*function to flip the card*/
 
- function flipCard(clickedCard) {
-     clickedCard.classList.toggle("open");
-     clickedCard.classList.toggle("show");
+ function flipCard(card) {
+     card.classList.toggle("open");
+     card.classList.toggle("show");
  }
  /* event listener for when card is clicked*/
 card.addEventListener("click", flipCard);
