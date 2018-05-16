@@ -39,12 +39,16 @@ function shuffle(cardDeck) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
- /*flip the card*/
+ /*function to flip the card*/
 
  function flipCard(clickedCard) {
      clickedCard.classList.toggle("open");
      clickedCard.classList.toggle("show");
  }
+ /* event listener for when card is clicked*/
+card.addEventListener("click", flipCard);
+
+
  /*increment move counter
 let moves=0;
 function moveCounter() {
