@@ -31,20 +31,7 @@ function shuffle(array) {
 }
 shuffle(cardDeck);
 
-/*document.getElementsByClassName('deck').addEventListener('click', function(){
-  let shuffledCards = shuffle(cardDeck);
-  let deck = document.getElementsByClassName('deck');
-  for (let i = 0; i < cardDeck.length; i++) {
-    deck.appendChild(shuffledCards[i]);
-  }
-});*/
 
-
-
-
-
-
-/*problem is on the replaceDeck() function.  When I comment out calling this function, the cards just flip when clicked, but the shuffle function also doesn't work.*/
 function replaceDeck(){
   let deck = document.querySelector(".deck");
   let shuffledCards = shuffle(cardDeck);
@@ -55,10 +42,10 @@ function replaceDeck(){
       deck.appendChild(shuffledCards[x]);
     }
 }
-/*this shuffles but when I click the card, it opens a card somewhere else.  problem is in the replaceDeck function*/
 window.onload = replaceDeck();
-  //shuffle(cardDeck);
-  /*function to flip the card*/
+
+
+/*function to flip the card*/
 function flipCards() {
    for (let i = 0; i < card.length; i++) {
      card[i].addEventListener('click', function() {
@@ -69,13 +56,6 @@ function flipCards() {
   }
 flipCards();
 
-/*function to start*/
-
-
-  /*for (let i = 0; i < card.length; i++) {
-    card[i].classList.remove('open', 'show', 'match');
-  }
-};*/
 
 /*
  * set up the event listener for a card. If a card is clicked:
