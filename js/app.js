@@ -74,12 +74,8 @@ flipCards();
  */
 
 
-
- /*increment move counter
-let moves=0;
-function moveCounter() { /* timer function that starts with click on card*/
-
-/*const minutes = document.querySelector("#minutes")
+/*Notes on timer function
+const minutes = document.querySelector("#minutes")
 const seconds = document.querySelector("#seconds")
 let count = 0;
 
@@ -90,10 +86,3 @@ function beginTimer = () => {
   }
 
 const timer = setInterval(beginTimer, 1000)
-
-$('.card').click(function beginTimer);
-    moves=moves+1;
-    alert(moves);
- }
-
-$('.card').click(function moveCounter());*/
