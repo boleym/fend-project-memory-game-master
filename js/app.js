@@ -3,8 +3,8 @@
  */
 /* link for animation https://daneden.github.io/animate.css/*/
 /*variables*/
-let card =  document.getElementsByClassName('card');
-let cardDeck = Array.from(card);
+const card =  document.getElementsByClassName('card');
+const cardDeck = Array.from(card);
 
 /*
  * Display the cards on the page
@@ -13,17 +13,6 @@ let cardDeck = Array.from(card);
  *   - add each card's HTML to the page
  */
 
- /*function to flip the card*/
-function flipCards() {
-  for (let i = 0; i < card.length; i++) {
-    card[i].addEventListener('click', function() {
-      card[i].classList.toggle('open');
-      card[i].classList.toggle('show');
-    })
-  }
-}
-
-card.addEventListener('click', flipCards());
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -40,7 +29,22 @@ function shuffle(array) {
     return array;
 
 }
+shuffle(cardDeck);
 
+/*document.getElementsByClassName('deck').addEventListener('click', function(){
+  let shuffledCards = shuffle(cardDeck);
+  let deck = document.getElementsByClassName('deck');
+  for (let i = 0; i < cardDeck.length; i++) {
+    deck.appendChild(shuffledCards[i]);
+  }
+});*/
+
+
+
+
+
+
+/*problem is on the replaceDeck() function.  When I comment out calling this function, the cards just flip when clicked, but the shuffle function also doesn't work.*/
 function replaceDeck(){
   let deck = document.querySelector(".deck");
   let shuffledCards = shuffle(cardDeck);
@@ -51,11 +55,19 @@ function replaceDeck(){
       deck.appendChild(shuffledCards[x]);
     }
 }
-/*this shuffles but when I click the card, it opens the position where the card used to be...*/
-window.onload = function(){
-  shuffle(cardDeck);
-  replaceDeck();
-};
+/*this shuffles but when I click the card, it opens a card somewhere else.  problem is in the replaceDeck function*/
+window.onload = replaceDeck();
+  //shuffle(cardDeck);
+  /*function to flip the card*/
+function flipCards() {
+   for (let i = 0; i < card.length; i++) {
+     card[i].addEventListener('click', function() {
+       card[i].classList.toggle('open');
+       card[i].classList.toggle('show');
+     })
+   }
+  }
+flipCards();
 
 /*function to start*/
 
