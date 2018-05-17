@@ -2,7 +2,7 @@
  * Create a list that holds all of your cards
  */
 /* link for animation https://daneden.github.io/animate.css/*/
-
+/*variables*/
 let card =  document.getElementsByClassName('card');
 let cardDeck = Array.from(card);
 
@@ -14,7 +14,6 @@ let cardDeck = Array.from(card);
  */
 
  /*function to flip the card*/
-
 function flipCards() {
   for (let i = 0; i < card.length; i++) {
     card[i].addEventListener('click', function() {
@@ -24,23 +23,47 @@ function flipCards() {
   }
 }
 
-flipCards();
+card.addEventListener('click', flipCards());
 
 // Shuffle function from http://stackoverflow.com/a/2450976
-function shuffle(cardDeck) {
-    var currentIndex = cardDeck.length, temporaryValue, randomIndex;
+function shuffle(array) {
+    let currentIndex = array.length, temporaryValue, randomIndex;
 
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex -= 1;
-        temporaryValue = cardDeck[currentIndex];
-        cardDeck[currentIndex] = cardDeck[randomIndex];
-        cardDeck[randomIndex] = temporaryValue;
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
     }
 
-    return cardDeck;
+    return array;
+
 }
 
+function replaceDeck(){
+  let deck = document.querySelector(".deck");
+  let shuffledCards = shuffle(cardDeck);
+    for (let i = 0; i < cardDeck.length; i++) {
+        cardDeck[i].parentNode.removeChild(cardDeck[i]);
+    }
+    for (let x = 0; x < shuffledCards.length; x++) {
+      deck.appendChild(shuffledCards[x]);
+    }
+}
+/*this shuffles but when I click the card, it opens the position where the card used to be...*/
+window.onload = function(){
+  shuffle(cardDeck);
+  replaceDeck();
+};
+
+/*function to start*/
+
+
+  /*for (let i = 0; i < card.length; i++) {
+    card[i].classList.remove('open', 'show', 'match');
+  }
+};*/
 
 /*
  * set up the event listener for a card. If a card is clicked:
