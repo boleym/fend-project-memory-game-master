@@ -15,7 +15,7 @@ let cardDeck = Array.from(card);
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(cardDeck) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+    var currentIndex = cardDeck.length, temporaryValue, randomIndex;
 
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
