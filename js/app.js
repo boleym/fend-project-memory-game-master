@@ -13,6 +13,19 @@ let cardDeck = Array.from(card);
  *   - add each card's HTML to the page
  */
 
+ /*function to flip the card*/
+
+function flipCards() {
+  for (let i = 0; i < card.length; i++) {
+    card[i].addEventListener('click', function() {
+      card[i].classList.toggle('open');
+      card[i].classList.toggle('show');
+    })
+  }
+}
+
+flipCards();
+
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(cardDeck) {
     var currentIndex = cardDeck.length, temporaryValue, randomIndex;
@@ -27,7 +40,7 @@ function shuffle(cardDeck) {
 
     return cardDeck;
 }
-/*still need to call this function to test it*/
+
 
 /*
  * set up the event listener for a card. If a card is clicked:
@@ -39,36 +52,12 @@ function shuffle(cardDeck) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
- /*function to flip the card*/
 
- function flipCards() {
-  for (let i = 0; i < card.length; i++) {
-    card[i].addEventListener('click', function() {
-      card[i].classList.toggle('open');
-      card[i].classList.toggle('show');
-    })
-  }
-}
-flipCards();
-
- /*function flipCard(card) {
-     toggle(".deck .card.open");
-     toggle(".deck .card.show");
- }
- /* event listener for when card is clicked
-card.addEventListener("click", flipCard);
 
 
  /*increment move counter
 let moves=0;
-function moveCounter() {
-    moves=moves+1;
-    alert(moves);
- }
-
-$('.card').click(function moveCounter());
-
- /* timer function that starts with click on card*/
+function moveCounter() { /* timer function that starts with click on card*/
 
 /*const minutes = document.querySelector("#minutes")
 const seconds = document.querySelector("#seconds")
@@ -83,3 +72,8 @@ function beginTimer = () => {
 const timer = setInterval(beginTimer, 1000)
 
 $('.card').click(function beginTimer);
+    moves=moves+1;
+    alert(moves);
+ }
+
+$('.card').click(function moveCounter());*/
