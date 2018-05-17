@@ -5,6 +5,7 @@
 /*variables*/
 const card =  document.getElementsByClassName('card');
 const cardDeck = Array.from(card);
+let moves = 0;
 
 /*
  * Display the cards on the page
@@ -45,17 +46,21 @@ function replaceDeck(){
 window.onload = replaceDeck();
 
 
-/*function to flip the card*/
+//function to flip the card, increase moves, start timer
 function flipCards() {
    for (let i = 0; i < card.length; i++) {
      card[i].addEventListener('click', function() {
        card[i].classList.toggle('open');
        card[i].classList.toggle('show');
+       moves++;
+       document.querySelector('.moves').textContent = moves;
      })
+     /*if (moves == 1) {
+       startTimer(); //still need to write this function
+     }*/
    }
   }
 flipCards();
-
 
 /*
  * set up the event listener for a card. If a card is clicked:
