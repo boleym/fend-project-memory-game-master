@@ -6,6 +6,9 @@
 const card =  document.getElementsByClassName('card');
 const cardDeck = Array.from(card);
 let moves = 0;
+const minutes = document.querySelector("#minutes");
+const seconds = document.querySelector("#seconds");
+let count = 0;
 
 /*
  * Display the cards on the page
@@ -43,8 +46,17 @@ function replaceDeck(){
       deck.appendChild(shuffledCards[x]);
     }
 }
-window.onload = replaceDeck();
+window.onload = replaceDeck();//associate this with the reset button?
 
+/*Notes on timer function*/
+
+function startTimer(){
+  count += 1;
+  minutes.innerHTML = Math.floor(count / 60).toString().padStart(2, "0");
+  seconds.innerHTML = (count % 60).toString().padStart(2, "0");
+  }
+
+const timer = setInterval(startTimer, 1000);
 
 //function to flip the card, increase moves, start timer
 function flipCards() {
@@ -54,11 +66,14 @@ function flipCards() {
        card[i].classList.toggle('show');
        moves++;
        document.querySelector('.moves').textContent = moves;
+
      })
-     /*if (moves == 1) {
-       startTimer(); //still need to write this function
-     }*/
-   }
+      if(moves == 1){
+        second = 0;
+        minute = 0;
+        startTimer();
+      }
+    }
   }
 flipCards();
 
@@ -72,17 +87,3 @@ flipCards();
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
-
-
-/*Notes on timer function
-const minutes = document.querySelector("#minutes")
-const seconds = document.querySelector("#seconds")
-let count = 0;
-
-function beginTimer = () => {
-  count += 1;
-  minutes.innerHTML = Math.floor(count / 60).toString().padStart(2, "0");
-  seconds.innerHTML = (count % 60).toString().padStart(2, "0");
-  }
-
-const timer = setInterval(beginTimer, 1000)
