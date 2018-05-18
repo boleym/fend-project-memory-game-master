@@ -48,17 +48,18 @@ function replaceDeck(){
 }
 window.onload = replaceDeck();//associate this with the reset button?
 
-/*Notes on timer function*/
+/*function to start timer*/
 
 function startTimer(){
   count += 1;
   minutes.innerHTML = Math.floor(count / 60).toString().padStart(2, "0");
   seconds.innerHTML = (count % 60).toString().padStart(2, "0");
-  }
+}
 
-const timer = setInterval(startTimer, 1000);
+
 
 //function to flip the card, increase moves, start timer
+//having problem where timer starts as soon as page loads
 function flipCards() {
    for (let i = 0; i < card.length; i++) {
      card[i].addEventListener('click', function() {
@@ -66,13 +67,8 @@ function flipCards() {
        card[i].classList.toggle('show');
        moves++;
        document.querySelector('.moves').textContent = moves;
-
+       const timer = setInterval(startTimer, 1000);
      })
-      if(moves == 1){
-        second = 0;
-        minute = 0;
-        startTimer();
-      }
     }
   }
 flipCards();
